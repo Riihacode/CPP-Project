@@ -1,0 +1,1 @@
+int idNumberInt = (i * INSIDE) + (j + 1); 
