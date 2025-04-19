@@ -1,0 +1,8 @@
+0,FOLDER,Root
+0,FILE,File1.txt,100
+0,FILE,File2.docx,200
+1,FOLDER,FolderA
+1,FILE,FileA1.pdf,300
+1,FILE,FileA2.jpg,400
+2,FOLDER,FolderA1
+2,FILE,FileA1_1.pptx,500

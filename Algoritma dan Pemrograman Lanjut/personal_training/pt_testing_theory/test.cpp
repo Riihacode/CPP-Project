@@ -2,16 +2,10 @@
 #include <string>
 using namespace std;
 
-//############################################
-// Constraint Declaration For Array 2D
 const int MAX_ARRAY = 50;
 const int OUTSIDE = 5;
 const int INSIDE = 10;
 
-
-
-//############################################
-// Struct Declaration (been using re-definition as a paramareter on function)
 struct DetailId {
     string classId = "A";
     string id[OUTSIDE][INSIDE];
@@ -23,11 +17,6 @@ struct Customer {
     int age;
 };
 
-
-//############################################
-// Bussiness Logic Core
-//============================================
-// Generating data dummy (just wanna filling 50 customer data fastly)
 void generateDataDummy(
     Customer customers[OUTSIDE][INSIDE], 
     int &indexOutside, 
@@ -49,15 +38,13 @@ void generateDataDummy(
                 // int idNumberInt = (i * INSIDE) + (j + 1); => cant be used because of needed to stop nested for bracket line code in order to add another data from sub menu on menu 1
                 int idNumberInt = totalDataIndex + 1;
                 string idNumberString;
-                
-                // validate to make sure it has `0` after `A` when the total calculation value of idNumberInt was < 10. 
+                 
                 if (idNumberInt < INSIDE) {
                     idNumberString = "0" + to_string(idNumberInt);
                 } else {
                     idNumberString = to_string(idNumberInt);
                 }
 
-                // Generate ID with string + string calculation by using string library (#include <string>)
                 customers[indexOutside][indexInside].idDetail.id[indexOutside][indexInside] = 
                     customers[indexOutside][indexInside].idDetail.classId + idNumberString;
 
@@ -79,8 +66,6 @@ void generateDataDummy(
     }
 }
 
-//============================================
-// Manual input customer data by admin (one-by-one)
 void inputByAdmin(
     Customer customers[OUTSIDE][INSIDE],
     string customerOfName,
@@ -94,14 +79,12 @@ void inputByAdmin(
         int idNumberInt = (indexIdOutside * INSIDE) + (indexIdInside + 1);
         string idNumberString;
         
-        // validate to make sure it has `0` after `A` when the total calculation value of idNumberInt was < 10. 
         if (idNumberInt < INSIDE) {
             idNumberString = "0" + to_string(idNumberInt);
         } else {
             idNumberString = to_string(idNumberInt);
         }
 
-        // Generate ID with string + string calculation by using string library (#include <string>)
         customers[indexIdOutside][indexIdInside].idDetail.id[indexIdOutside][indexIdInside] = 
             customers[indexIdOutside][indexIdInside].idDetail.classId + idNumberString;
 
@@ -124,8 +107,6 @@ void inputByAdmin(
     }
 }
 
-//============================================
-// Showing all of the customer data that has already been input
 void showAllData(Customer customers[OUTSIDE][INSIDE], int totalData) {
     int counter = 0;
     for (int i = 0; i < OUTSIDE; i++) {
@@ -144,7 +125,6 @@ void showAllData(Customer customers[OUTSIDE][INSIDE], int totalData) {
     cout << endl;
 }
 
-//====================================
 void bubbleSortById(Customer customers[OUTSIDE][INSIDE], int totalData) {
     for (int i = 0; i < totalData - 1; i++) {
         for (int j = 0; j < totalData - i - 1; j++) {
@@ -166,7 +146,6 @@ void bubbleSortById(Customer customers[OUTSIDE][INSIDE], int totalData) {
     }
 }
 
-//====================================
 void bubbleSortByName(Customer customers[OUTSIDE][INSIDE], int totalData) {
     for (int i = 0; i < totalData - 1; i++) {
         for (int j = 0; j < totalData - i - 1; j++) {
@@ -188,7 +167,6 @@ void bubbleSortByName(Customer customers[OUTSIDE][INSIDE], int totalData) {
     }
 }
 
-//====================================
 void bubbleSortByAge(Customer customers[OUTSIDE][INSIDE], int totalData) {
     for (int i = 0; i < totalData - 1; i++) {
         for (int j = 0; j < totalData - i - 1; j++) {
@@ -233,20 +211,12 @@ void displayCustomers(Customer customers[OUTSIDE][INSIDE], int totalData) {
     }
 }
 
-
-
-//############################################
-// Utility Function
-//============================================
-// Utility Function for swapping
 void swap(Customer &a, Customer &b) {
     Customer temp = a;
     a = b;
     b = temp;
 }
 
-//############################################
-// Function Main as UI (only for user (admin) data input)
 int main () {
     int chooseMenu;
     Customer customerInMenu[OUTSIDE][INSIDE] = { };

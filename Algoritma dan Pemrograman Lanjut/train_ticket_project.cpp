@@ -186,9 +186,33 @@ void tampilkanDataKotaAsal();
 void tampilkanDataKotaTujuan();
 
 int main() {
-    inputDataKereta();
-    inputDataPenumpang();
-    tampilkanKursi();
+    int pilih;
+
+    do {
+        cout << "======= MENU ======="              << endl;
+        cout << "1. Input Form Kereta"              << endl;
+        cout << "2. Tampilkan Data Kursi Saat Ini"  << endl;
+        cout << "3. Exit"                           << endl;
+        cout << "Input Menu : ";
+        cin >> pilih;
+    } while (pilih != 3);
+
+    switch (pilih) {
+        case 1: {
+            inputDataKereta();
+            inputDataPenumpang();
+            break;
+        }
+            
+        case 2: {
+            tampilkanKursi();
+            break;
+        }
+        
+        default:
+            break;
+    }
+
     return 0;
 }
 
